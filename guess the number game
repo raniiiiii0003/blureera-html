@@ -1,0 +1,60 @@
+package in.owncompany;
+import java.util.*;
+
+class guesthenum {
+    //functions
+    private final String Secretnum;
+    String Rules;
+
+    //constructions
+    public guesthenum(String secret) {Secretnum = secret;}
+
+    //Setter
+    public void Setrules(String rules) {Rules = rules;}
+
+    //Getter for constructor
+    public String Getsecret() {return Secretnum;}
+    public String GetRules() {return Rules;}
+    //if-else condition
+    public void playGame() {
+        Scanner scan = new Scanner(System.in);
+        int computerchoice = (int) (Math.random() * 100) + 1;
+
+        for (int i = 1; i <= 3; i++) {
+            System.out.print("Enter your number: ");
+            int guessing = scan.nextInt();
+
+            if (guessing == computerchoice) {
+                System.out.println("🎉 You guessed it right!");
+                return; // Exit the game
+            } else if (guessing < computerchoice) {
+                System.out.println("Too Low!");
+            } else {
+                System.out.println("Too High!");
+            }
+
+            System.out.println("Chances left: " + (3 - i));
+        }
+
+        System.out.println("😢 You lost! The correct number was: " + computerchoice);
+    }
+}
+
+    public class guessthenumberoop {
+    public static void main(String[] args) {
+        guesthenum obj = new guesthenum("The computer is thinking of a number... but it won’t tell anyone. It’ll just react to your guesses. ");
+        obj.Setrules("Welcome to Guess the Number! \nThe computer is thinking of a number between 1 and 100...\nYou only get 3 chances. Let’s begin!");
+
+        System.out.println(obj.Getsecret());
+        System.out.println(obj.GetRules());
+        obj.playGame();
+
+
+
+
+
+
+
+        }
+
+}
